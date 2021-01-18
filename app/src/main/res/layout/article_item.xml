@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import
+            alias="commonFun"
+            type="com.zhy.wanandroidmvvm.commonfun.CommonKt" />
+
+        <variable
+            name="datax"
+            type="com.zhy.wanandroidmvvm.model.DataX" />
+
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="5dp"
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:padding="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/coverImageContainer"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="0dp"
+                tools:ignore="MissingConstraints">
+
+                <ImageView
+                    android:id="@+id/coverImage"
+                    imgPath="@{commonFun.stringCheck(datax.envelopePic)}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    tools:ignore="MissingConstraints" />
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/articleTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{commonFun.stringCheck(datax.title)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/coverImageContainer"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/authorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{String.format("作者：%s",commonFun.stringCheck(datax.author,datax.shareUser))}'
+                app:layout_constraintBottom_toTopOf="@+id/updateTime"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/articleTitle"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/updateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{String.format("更新时间：%s",commonFun.stringCheck(datax.niceDate))}'
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="文章"
+        android:icon="@mipmap/home_v_def3"
+        android:id="@+id/home"
+        />
+    <item android:title="热门"
+        android:icon="@mipmap/hot_v_def"
+        android:id="@+id/hot"
+        />
+</menu>

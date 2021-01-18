@@ -1,0 +1,8 @@
+ext {
+
+    NAV_VERSION = "2.3.2"
+    PAGING_VERSION = "3.0.0-alpha11"
+    GSON_VERSION = "2.8.6"
+    OKHTTP_VERSION = "4.9.0"
+
+}
